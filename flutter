@@ -1,0 +1,113 @@
+#1
+void main() {
+  print("Enter the grade of the first course: ");
+  double firstGrade = double.parse(stdin.readLineSync()!);
+
+  print("Enter the grade of the second course: ");
+  double secondGrade = double.parse(stdin.readLineSync()!);
+
+  print("Enter the grade of the third course: ");
+  double thirdGrade = double.parse(stdin.readLineSync()!);
+
+  double average = (firstGrade + secondGrade + thirdGrade) / 3;
+  print("The grade 1 is: $firstGrade\nThe grade 2 is: $secondGrade\nThe grade 3 is: $thirdGrade\n The average of the three grades is: $average");
+}
+#2
+
+void main() {
+  print("Write the item price: ");
+
+  String? text = stdin.readLineSync();
+
+  double price = double.parse(text!);
+
+  double newPrice = 0.0;
+
+  if (price >= 5000) {
+    newPrice = price * 0.8;
+  }else if(price < 5000 && price > 1000){
+    newPrice = price * 0.85;
+  }else {
+    newPrice = price * 0.9;
+  }
+
+  print("your price after discount is $newPrice");
+}
+#3
+
+void main() {
+  print("Enter the first number: ");
+  double firstNumber = double.parse(stdin.readLineSync()!);
+
+  print("Enter the second number: ");
+  double secondNumber = double.parse(stdin.readLineSync()!);
+
+  double? result;
+
+  print("Enter the operation: ");
+  String operation = stdin.readLineSync()!;
+
+  switch(operation){
+    case '+':
+    result = firstNumber + secondNumber;
+    break;
+    case '-':
+    result = firstNumber - secondNumber;
+    break;
+    case '*':
+    result = firstNumber * secondNumber;
+    break;
+    case '/':
+    result = firstNumber / secondNumber;
+    break;
+    default:
+    print("Invalid operation");
+  }
+
+
+  if(result != null)
+  print("The result is $result");
+}
+#4
+
+void main() {
+  List<int> numbers = [];
+  int sum = 0;
+
+  for (int i = 0; i < 5; i++) {
+    print("Enter the number ${i + 1}: ");
+    String input = stdin.readLineSync()!;
+    int num = int.parse(input);
+    numbers.add(num);
+    sum = sum + num;
+  }
+
+  print("The sum of the numbers is: $sum");
+}
+
+#5
+
+void main() {
+  List<int> numbers = [];
+  List<double> newDiviedNumbers = [];
+  int divisor;
+
+  print("Enter the divisor: ");
+  divisor = int.parse(stdin.readLineSync()!);
+
+  try {
+    if (divisor == 0) {
+      throw Exception();
+    }
+    for (int i = 0; i < 5; i++) {
+      print('Enter the number ${i + 1}: ');
+      int number = int.parse(stdin.readLineSync()!);
+      numbers.add(number);
+      double dividedNumber = number / divisor;
+      newDiviedNumbers.add(dividedNumber);
+    }
+    print("the new list is $newDiviedNumbers");
+  } catch (e) {
+    print("Cannot divide by zero.");
+  }
+}
